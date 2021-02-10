@@ -8,6 +8,6 @@ A company in the live streaming business.  Their data science team would like to
 
 2. **Transform**: Transform the data in order to store it on a database.  We read the data into a Pandas dataframe, used methods to remove null values and entire columns that were unnecessary for our analysis, and obtained one merged dataset with all the information we needed.  Any type of alteration performed in the data we extracted was considered a transformation.
 
-3. **Load**: after the data is ready we transfered it into it's final destination, a **PostgreSQL** database.  This was done with Python directly by using Pandas to_SQL method but also can be done using SQLAlchemy.
+3. **Load**: after the data is ready we transfered it into it's final destination, a **PostgreSQL** database.  This was done with Python directly by using Pandas to_SQL method and SQLAlchemy.
 
 
