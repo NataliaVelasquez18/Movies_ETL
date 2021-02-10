@@ -23,12 +23,10 @@ The following is the python code used stored in Jupyter Notebooks:
 3. **Load**: after the data is ready we transfered it into it's final destination, a **PostgreSQL** database.  This was done with Python directly by using SQLAlchemy and to_sql.
 
 
-```
-
-Create database and load merged, clean movies dataset
 
 
 ```
+    ##Create database and load merged, clean movies dataset
     db_string = f"postgres://postgres:{db_password}@127.0.0.1:5432/movie_data"
     engine = create_engine(db_string)
     movies_df.to_sql(name='movies', con=engine, if_exists='replace')
@@ -38,10 +36,9 @@ Create database and load merged, clean movies dataset
 ```
 
 
-Load ratings.csv file to database
-
 
 ```
+    #Load ratings.csv file to database
     start_time = time.time()
     for data in pd.read_csv(f'{file_dir}/ratings.csv', chunksize=1000000):
         print(f'importing rows {rows_imported} to {rows_imported + len(data)}...', end='')
@@ -51,5 +48,6 @@ Load ratings.csv file to database
         # add elapsed time to final print out
         print(f'Done. {time.time() - start_time} total seconds elapsed')
 ```
+
 
 <img src="https://github.com/NataliaVelasquez18/Movies_ETL/blob/main/Resources/movies_query.png" width="350" height="250" />
