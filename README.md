@@ -1,5 +1,7 @@
 # Data Pipeline: Extract, Transform, and Load
 
+Extracting data from a variety of sources in JSON and CSV formats to clean it and transforme it using Python and finally loading it into a PostgreSQL database using SQLAlchemy and to_SQL methods.
+
 ## Business case:
 
 A company in the live streaming business.  Their data science team would like to develop an algorithm to predict which low budget movies being released will become popular.  In order to do that it's necessary to go through the entire Data Pipeline (ETL):
