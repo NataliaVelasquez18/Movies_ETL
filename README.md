@@ -10,7 +10,7 @@ A company in the live streaming business.  Their data science team would like to
 2. **Transform**: Transform the data in order to store it on a database.  We read the data into a Pandas dataframe, used methods to remove null values and entire columns that were unnecessary for our analysis, and obtained one merged dataset with all the information we needed. 
 
 
-The following is the code used
+The following is the python code used stored in Jupyter Notebooks:
 
 
 * [Cleaning kaggle data](https://github.com/NataliaVelasquez18/Movies_ETL/blob/main/ETL_clean_kaggle_data.ipynb)
@@ -20,20 +20,7 @@ The following is the code used
 
 
 
-Final merge
-
-
-```
-    # Merge the ratings DataFrame into clean Movies data
-    rating_counts = ratings.groupby(["movieId", "rating"], as_index = False).count().rename({"userId": "count"}, axis = 1).pivot(index="movieId", columns = "rating", values = "count")
-    rating_counts.columns = ['rating_' + str(col) for col in rating_counts.columns]
-    movies_ratings_df = pd.merge(movies_df, rating_counts, how="left", left_on="kaggle_id", right_index = True)
-    movies_ratings_df[rating_counts.columns] = movies_ratings_df[rating_counts.columns].fillna(0)
-```
-
-
-
-3. **Load**: after the data is ready we transfered it into it's final destination, a **PostgreSQL** database.  This was done with Python directly by using SQLAlchemy.
+3. **Load**: after the data is ready we transfered it into it's final destination, a **PostgreSQL** database.  This was done with Python directly by using SQLAlchemy and to_sql.
 
 
 ```
